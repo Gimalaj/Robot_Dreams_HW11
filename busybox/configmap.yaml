@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: busybox-config
+  namespace: hw11
+data:
+  LOG_FILE_NAME: "hw11-log.txt"

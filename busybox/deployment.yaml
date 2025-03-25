@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hw11-deployment
+  namespace: hw11
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: busybox
+  template:
+    metadata:
+      labels:
+        app: busybox
+      annotations:
+          prometheus.io/scrape: "true"
+          prometheus.io/port: "80"
+          prometheus.io/path: "/metrics"
+    spec:
+      containers:
+        - name: busybox
+          image: busybox
+          env:
+            - name: LOG_FILE_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: busybox-config
+                  key: LOG_FILE_NAME
+          command: ["sh", "-c", "while true; do echo \"$(hostname) - $(date)\" | tee -a /data/$LOG_FILE_NAME; sleep 5; done"]
+          volumeMounts:
+            - name: log-volume
+              mountPath: /data
+      volumes:
+        - name: log-volume
+          persistentVolumeClaim:
+            claimName: busybox-pvc
+
