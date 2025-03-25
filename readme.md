@@ -2,51 +2,51 @@
 
 ## 1. Створення namespace
 ```sh
-microk8s.kubectl apply -f [namespace.yaml](namespace.yaml)
+microk8s.kubectl apply -f namespace.yaml
 ```
 
 ## 2. Розгортання Prometheus
 ```sh
-microk8s.kubectl apply -f [monitoring/prometheus-config.yaml](monitoring/prometheus-config.yaml)
-microk8s.kubectl apply -f [monitoring/prometheus-deployment.yaml](monitoring/prometheus-deployment.yaml)
-microk8s.kubectl apply -f [monitoring/prometheus-service.yaml](monitoring/prometheus-service.yaml)
+microk8s.kubectl apply -f monitoring/prometheus-config.yaml
+microk8s.kubectl apply -f monitoring/prometheus-deployment.yaml
+microk8s.kubectl apply -f monitoring/prometheus-service.yaml
 ```
 
 ## 3. Розгортання Loki
 ```sh
-microk8s.kubectl apply -f [loki/loki-config.yaml](loki/loki-config.yaml)
-microk8s.kubectl apply -f [loki/loki-pv.yaml](loki/loki-pv.yaml)
-microk8s.kubectl apply -f [loki/loki-pvc.yaml](loki/loki-pvc.yaml)
-microk8s.kubectl apply -f [loki/loki-deployment.yaml](loki/loki-deployment.yaml)
-microk8s.kubectl apply -f [loki/loki-service.yaml](loki/loki-service.yaml)
+microk8s.kubectl apply -f loki/loki-config.yaml
+microk8s.kubectl apply -f loki/loki-pv.yaml
+microk8s.kubectl apply -f loki/loki-pvc.yaml
+microk8s.kubectl apply -f loki/loki-deployment.yaml
+microk8s.kubectl apply -f loki/loki-service.yaml
 ```
 
 ## 4. Розгортання Fluent Bit
 ```sh
-microk8s.kubectl apply -f [fluent/fluent-bit-config.yaml](fluent/fluent-bit-config.yaml)
-microk8s.kubectl apply -f [fluent/fluent-bit-deamonset.yaml](fluent/fluent-bit-deamonset.yaml)
+microk8s.kubectl apply -f fluent/fluent-bit-config.yaml
+microk8s.kubectl apply -f fluent/fluent-bit-deamonset.yaml
 ```
 
 ## 5. Розгортання Grafana
 ```sh
-microk8s.kubectl apply -f [grafana/grafana-deployment.yaml](grafana/grafana-deployment.yaml)
-microk8s.kubectl apply -f [grafana/grafana-service.yaml](grafana/grafana-service.yaml)
-microk8s.kubectl apply -f [grafana/grafana-ingress.yaml](grafana/grafana-ingress.yaml)
+microk8s.kubectl apply -f grafana/grafana-deployment.yaml
+microk8s.kubectl apply -f grafana/grafana-service.yaml
+microk8s.kubectl apply -f grafana/grafana-ingress.yaml
 ```
 
 ## 6. Розгортання kube-state-metrics і node-exporter
 ```sh
-microk8s.kubectl apply -f [monitoring/kube-state-metrics.yaml](monitoring/kube-state-metrics.yaml)
-microk8s.kubectl apply -f [monitoring/node-exporter.yaml](monitoring/node-exporter.yaml)
+microk8s.kubectl apply -f monitoring/kube-state-metrics.yaml
+microk8s.kubectl apply -f monitoring/node-exporter.yaml
 ```
 
 ## 7. Розгортання тестового busybox
 ```sh
-microk8s.kubectl apply -f [busybox/configmap.yaml](busybox/configmap.yaml)
-microk8s.kubectl apply -f [busybox/pv.yaml](busybox/pv.yaml)
-microk8s.kubectl apply -f [busybox/pvc.yaml](busybox/pvc.yaml)
-microk8s.kubectl apply -f [busybox/deployment.yaml](busybox/deployment.yaml)
-microk8s.kubectl apply -f [busybox/service.yaml](busybox/service.yaml)
+microk8s.kubectl apply -f busybox/configmap.yaml
+microk8s.kubectl apply -f busybox/pv.yaml
+microk8s.kubectl apply -f busybox/pvc.yaml
+microk8s.kubectl apply -f busybox/deployment.yaml
+microk8s.kubectl apply -f busybox/service.yaml
 ```
 
 ## 8. Перевірка стану ресурсів
